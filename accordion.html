@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Create Accordion</title>
+	<style>
+		.accordion {
+			background-color: #eee;
+			color: #444;
+			cursor: pointer;
+			padding: 18px;
+			width: 50%;
+			text-align: left;
+			border: none;
+			outline: none;
+			transition: 0.4s;
+		}
+		.active, .accordion:hover {
+			background-color: #ccc;
+		}
+		.panel {
+            
+			padding:5px;
+			background-color: white;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.2s ease-in-out;
+			
+		}
+		div.panel.show {
+			opacity: 1;
+			max-height: 500px;
+			
+		}
+		button.accordion:after {
+			/*unicode character for "plus+" sign*/
+			content: '\002B';
+			font-size: 13px;
+			color: #777;
+			float: right;
+			margin-left: 5px;
+			
+		}
+		.accordion.active:after {
+			content: "\2212";
+			/*unicode character for minus'- sign*/
+
+		}
+	</style>
+	
+</head>
+<body>
+	<button class="accordion">Section 1</button>
+	<div class="panel">
+		<p>Nickson websolution is learning every day to improve his perfection methor by samuel atuma </p>
+	</div>
+	<button class="accordion">Section 2</button>
+	<div class="panel">
+		<p>it changing process without external motivation but driven by self motivation</p>
+	</div>
+	<button class="accordion">Section 3</button>
+	<div class="panel">
+		<p>with time i will get there to an extend</p>
+	</div>
+
+	<script>
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+		for (i = 0; i < acc.length; i++) {
+			acc[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var panel = this.nextElementSibling;
+				if (panel.style.maxHeight) {
+					panel.style.maxHeight = null;
+				}else {
+					panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			});
+			}
+		
+	</script>
+
+</body>
+</html>
